@@ -1,5 +1,12 @@
 <ul>
 <% @movies.each do |m| %>
-  <li><%= m.title %> : <%= m.rating %> <%= number_to_currency(m.total_gross, precision:0) %></li>
+  <li><%= m.title %> : <%= m.rating %> <%= number_to_currency(m.total_gross, precision:0) %>
+  <p>
+  <%= m.description %>
+</p>
+<p>
+  <%= m.released_on %>
+</p>
+  </li>
 <% end %>
 </ul>
