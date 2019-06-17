@@ -554,3 +554,18 @@ section.errors {
 		top: 0;
 	}
 }
+
+// Alert
+.alert {
+	margin: 0;
+  text-align: center;
+	color: white;
+}
+.alert-info {
+	background: $green;
+	width:50%;
+}
+.alert-warning {
+	background: $red;
+	width:50%;
+}

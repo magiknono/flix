@@ -11,8 +11,11 @@ class MoviesController < ApplicationController
 
     def create
         @movie = Movie.new(movie_params)
-        @movie.save
-        redirect_to @movie
+        if @movie.save
+            redirect_to @movie, notice: "Movie has been created with success"
+        else
+            render :new
+        end
     end
 
     def show
@@ -24,13 +27,16 @@ class MoviesController < ApplicationController
     end
 
     def update
-        @movie.update(movie_params)
-        redirect_to @movie
+        if @movie.update(movie_params)
+            redirect_to @movie, notice: "Movie has been updated with success"
+        else
+            render :edit     
+        end
     end
 
     def destroy
         @movie.destroy
-        redirect_to movies_url
+        redirect_to movies_url, alert: "Movie has been successfully destroyed"
     end
 
     private
